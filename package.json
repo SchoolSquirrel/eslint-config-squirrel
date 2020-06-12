@@ -1,0 +1,15 @@
+{
+    "name": "eslint-config-squirrel",
+    "version": "0.0.1",
+    "main": "index.js",
+    "files": [
+        "index.js"
+    ],
+    "peerDependencies": {
+        "eslint": "^7.2.0"
+    },
+    "dependencies": {
+        "eslint": "^7.2.0",
+        "eslint-config-airbnb-base": "^14.2.0"
+    }
+}
