@@ -1,6 +1,6 @@
 {
-    "name": "eslint-config-squirrel",
-    "version": "0.0.1",
+    "name": "@schoolsquirrel/eslint-config-squirrel",
+    "version": "0.1.0",
     "main": "index.js",
     "files": [
         "index.js"
