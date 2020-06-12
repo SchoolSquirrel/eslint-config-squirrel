@@ -47,5 +47,8 @@ module.exports = {
         "quotes": ["error", "double"],
         "radix": "off",
         "semi": ['error', 'always'],
-    }
+    },
+    overrides: [{
+        files: ["*.ts"],
+    }]
 };
