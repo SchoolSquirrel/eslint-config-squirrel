@@ -6,10 +6,12 @@
         "index.js"
     ],
     "peerDependencies": {
-        "eslint": "^7.2.0"
+        "eslint": "^7.2.0",
+        "eslint-plugin-import": "^2.21.2"
     },
     "dependencies": {
         "eslint": "^7.2.0",
-        "eslint-config-airbnb-base": "^14.2.0"
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.21.2"
     }
 }
