@@ -4,6 +4,16 @@ module.exports = {
         "browser": true,
         "node": true,
     },
+    parser: "@typescript-eslint/parser",
+    plugins: ["@typescript-eslint", "prettier"],
+    settings: {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts"]
+        },
+        "import/resolver": {
+            typescript: {}
+        }
+    },
     rules: {
         "@typescript-eslint/ban-ts-ignore": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
