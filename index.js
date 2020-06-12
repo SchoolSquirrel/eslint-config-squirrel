@@ -1,5 +1,9 @@
 module.exports = {
-    extends: ["eslint-config-airbnb-base", "plugin:@typescript-eslint/recommended"],
+    extends: [
+        "eslint-config-airbnb-base",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+    ],
     env: {
         "browser": true,
         "node": true,
