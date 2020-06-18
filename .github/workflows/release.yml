@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  npm:
+    name: Release to NPM
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install dependencies
+      run: npm install
+    - name: Configure npm
+      run: npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+      env:
+        CI: true
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN  }}
+    - name: Publish to NPM
+      run: npm publish --access public
+      env:
+        CI: true
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN  }}
+  release:
+    name: Create a GitHub release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Generate changelog
+      id: changelog
+      uses: scottbrenner/generate-changelog-action@master
+      env:
+        REPO: ${{ github.repository }}
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        body: |
+          ${{ steps.changelog.outputs.changelog }}
+
+          View this library on npmjs.com: [https://www.npmjs.com/package/@schoolsquirrel/eslint-config-squirrel](https://www.npmjs.com/package/@schoolsquirrel/eslint-config-squirrel)
+        draft: true
+        prerelease: false
