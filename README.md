@@ -9,6 +9,6 @@
 
 ## Usage
 - Run `npm i eslint @schoolsquirrel/eslint-config-squirrel eslint-plugin-import eslint-plugin-prettier --save-dev`
-- Create a `.eslintrc.json` file with the following content: `{ "extends": ["eslint-config-squirrel"] }`
+- Create a `.eslintrc.json` file with the following content: `{ "extends": ["@schoolsquirrel/eslint-config-squirrel"] }`
 - Create a `.eslintignore` file and list all the folders / files to be ignored.
 - Done!
